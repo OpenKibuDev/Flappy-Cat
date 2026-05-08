@@ -21,6 +21,8 @@ can_change = False
 is_up = False
 death = False
 score = -1
+speed = 0
+time = 0
 
 # CAT
 cat = pygame.image.load("sprites/cat.png")
@@ -74,6 +76,12 @@ while running:
         gravitation = 10
         wing.play
 
+    if the_y <= 0:
+        gravitation = 0
+        the_y = 1
+
+
+    
 
     cat_rotated = pygame.transform.rotate(cat, gravitation)
 
@@ -93,7 +101,7 @@ while running:
     random_num = random.randint(1,2)
 
     if pipe_x >= -150:
-        pipe_x -= 20
+        pipe_x -= (20 + speed)
     elif pipe_x <= -150:
         can_change = True
         pipe_x = 1200
@@ -121,6 +129,7 @@ while running:
     screen.blit(pipe, (pipe_x, pipe_y_copy))
 
 
+
     # SCORE
     text_surface = font.render(str(score), True, color)
     text_rect = text_surface.get_rect(center = (screen_x/2, 100))
@@ -134,6 +143,12 @@ while running:
     if cat_hitbox.colliderect(pipe_hitbox) or cat_hitbox.colliderect(pipe_copy_hitbox):
         dead = True
         running = False
+    
+    time += 1
+    if time == 300:
+        speed += 2
+        time = 0
+
     clock.tick(30)
     pygame.display.update()
 
