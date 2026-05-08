@@ -177,5 +177,3 @@ root.withdraw()
 
 if death:
     messagebox.showerror("You died", "GAME OVER" + chr(10)+"I don't know what to make as a dead screen.")
-elif score == 999:
-    messagebox.showwarning("Secret","SECRET FOUND" + chr(10) + "Why would you play this so far?")
