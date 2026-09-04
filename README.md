@@ -10,5 +10,3 @@
 </p>
 
 <p>Enjoy this project, experiment with it and learn from it.</p>
-
-> **Tip:** Don't learn from this project. It was vibe coded without AI.
